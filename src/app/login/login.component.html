@@ -6,8 +6,16 @@
 
       <mat-form-field>
 
-        <input matInput type="email" name="email" ngModel #email="ngModel" placeholder="Email" required>
+        <input matInput type="email" name="email"
+        ngModel #email="ngModel"
+        placeholder="Email"
+        required email minlength="3" maxlength="20">
         <mat-error *ngIf="email.errors?.required">The email is mandatory.</mat-error>
+        <mat-error *ngIf="email.errors?.minlength">
+          Your email must have minimum {{ email.errors?.minlength.requiredLength }} chars
+          but it only {{ email.errors?.minlength.actuaLength }}
+        </mat-error>
+        <mat-error *ngIf="email.errors?.email">This is not a valid email</mat-error>
 
       </mat-form-field>
 
