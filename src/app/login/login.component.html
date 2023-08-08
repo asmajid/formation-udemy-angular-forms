@@ -7,7 +7,8 @@
       <mat-form-field>
 
         <input matInput type="email" name="email"
-        ngModel #email="ngModel"
+        [ngModel]="val.email" 
+        #email="ngModel"
         (ngModelChange)="onEmailChange($event)"
         placeholder="Email"
         required email minlength="3" maxlength="20">
