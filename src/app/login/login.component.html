@@ -7,6 +7,7 @@
       <mat-form-field>
 
         <input matInput type="email" name="email" ngModel #email="ngModel" placeholder="Email" required>
+        <mat-error *ngIf="email.errors?.required">The email is mandatory.</mat-error>
 
       </mat-form-field>
 
@@ -24,7 +25,7 @@
 
     <div class="form-val">
       <!-- {{ loginForm.value | json }} -->
-      {{ email.valid}}
+      {{ email.errors | json}}
 
     </div>
 
