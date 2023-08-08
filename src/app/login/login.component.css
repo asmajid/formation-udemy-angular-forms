@@ -12,7 +12,9 @@
 .form-val{
   margin-top: 10px;
 }
-
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
 .test-input {
   border-bottom: 1px solid grey;
   margin-bottom: 10px;
