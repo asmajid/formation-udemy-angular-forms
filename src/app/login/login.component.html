@@ -8,6 +8,7 @@
 
         <input matInput type="email" name="email"
         ngModel #email="ngModel"
+        (ngModelChange)="onEmailChange($event)"
         placeholder="Email"
         required email minlength="3" maxlength="20">
         <mat-error *ngIf="email.errors?.required">The email is mandatory.</mat-error>
