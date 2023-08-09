@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CoursesService} from '../../services/courses.service';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import { courseTitleValidator } from '../../validators/course-title.validator';
+// import { courseTitleValidator } from '../../validators/course-title.validator';
 
 @Component({
   selector: 'create-course-step-1',
@@ -19,10 +19,11 @@ export class CreateCourseStep1Component implements OnInit {
         Validators.minLength(5),
         Validators.maxLength(60)
       ],
-      AsyncValidators: [courseTitleValidator(this.courses)],
+      // AsyncValidators: [courseTitleValidator(this.courses)],
       updateOn: 'blur'
 
-    }]
+    }],
+    releasedAt: [new Date(), Validators.required]
 
   })
   constructor(private fb: FormBuilder, private courses: CoursesService) {

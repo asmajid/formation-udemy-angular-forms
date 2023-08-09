@@ -5,18 +5,20 @@ import { AsyncValidatorFn } from "@angular/forms";
 
 
 
-export function courseTitleValidator(course: CoursesService):AsyncValidatorFn {
-  return (control: AbstractControl) => {
-    return courses.findAllCourses()
-      .pipe(
-        map(courses => {
-          const course = courses.find(
-            course => course.description.toLowerCase());
+// export function courseTitleValidator(course: CoursesService):AsyncValidatorFn {
+//   const courses[];
+//   return (control: AbstractControl) => {
 
-          return course ? {titleExists:true} : null;
+//     return courses.findAllCourses()
+//       .pipe(
+//         map(courses => {
+//           const course = courses.find(
+//             course => course.description.toLowerCase());
 
-        })
-      )
-  }
+//           return course ? {titleExists:true} : null;
 
-}
+//         })
+//       )
+//   }
+
+// }
