@@ -9,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginReactiveComponent implements OnInit {
 
+  email = new FormControl('',
+  {
+    validators: [Validators.required, Validators.email],
+    updateOn: 'blur'
+  });
+  password = new FormControl('', {validators: [Validators.required, Validators.minLength(8)]});
   form = new FormGroup({
-    email: new FormControl('', {validators: [Validators.required, Validators.email]}),
-    password: new FormControl('', {validators: [Validators.required, Validators.minLength(8)]})
+    email: this.email,
+    password: this.password
   })
 
 
