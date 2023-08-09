@@ -1,5 +1,6 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { createPasswordStrengthValidator } from '../validators/password-stength.validator';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class LoginReactiveComponent implements OnInit {
     validators: [Validators.required, Validators.email],
     updateOn: 'blur'
   });
-  password = new FormControl('', {validators: [Validators.required, Validators.minLength(8)]});
+  password = new FormControl('', {validators:[
+    Validators.required,
+    Validators.minLength(8),
+    createPasswordStrengthValidator()
+  ]});
   form = new FormGroup({
     email: this.email,
     password: this.password
